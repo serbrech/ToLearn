@@ -1,14 +1,16 @@
 <h1>Listing todo_lists</h1>
-
+<p id="notice"><%= notice %></p>
 <table>
   <tr>
+    <th>Name</th>
     <th></th>
     <th></th>
-    <th></th>
+	<th></th>
   </tr>
 
 <% @todo_lists.each do |todo_list| %>
   <tr>
+	<td><%=todo_list.name %></td>
     <td><%= link_to 'Show', todo_list %></td>
     <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
     <td><%= link_to 'Destroy', todo_list, :confirm => 'Are you sure?', :method => :delete %></td>

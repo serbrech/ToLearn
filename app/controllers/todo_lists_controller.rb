@@ -30,16 +30,14 @@ class TodoListsController < ApplicationController
   # POST /todo_lists.xml
   def create
     @todo_list = TodoList.new(params[:todo_list])
-
-    respond_to do |format|
-      if @todo_list.save
-        format.html { redirect_to(@todo_list, :notice => 'Todo list was successfully created.') }
-        format.xml  { render :xml => @todo_list, :status => :created, :location => @todo_list }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @todo_list.errors, :status => :unprocessable_entity }
+    
+     respond_to do |format|
+        if @todo_list.save
+          format.html { redirect_to(@todo_list, :notice => 'Todo list was successfully created.') }
+        else
+          format.html { render :action => "create" }
+        end
       end
-    end
   end
 
   # PUT /todo_lists/1
